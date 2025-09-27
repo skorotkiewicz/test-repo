@@ -1,0 +1,21 @@
+# Maintainer: Test User <test@example.com>
+pkgname=koza3
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="A simple test package"
+arch=('x86_64')
+url="https://example.com"
+license=('MIT')
+depends=('bash')
+makedepends=()
+
+build() {
+    echo "Building test package..."
+}
+
+package() {
+    mkdir -p "$pkgdir/usr/bin"
+    echo '#!/bin/bash' > "$pkgdir/usr/bin/test-package"
+    echo 'echo "Hello from test-package!"' >> "$pkgdir/usr/bin/test-package"
+    chmod +x "$pkgdir/usr/bin/test-package"
+}
